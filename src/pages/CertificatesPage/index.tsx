@@ -68,13 +68,13 @@ const CertificatesPage: React.FC = (): JSX.Element => {
       </Container>
       <Container>
         {selectedCertificate && (
-        <CertificateCard
-          subjectCommonName={subjectCommonName}
-          issuerCommonName={issuerCommonName}
-          startValidity={startValidity}
-          endValidity={endValidity}
-        />
-      )}
+          <CertificateCard
+            subjectCommonName={subjectCommonName}
+            issuerCommonName={issuerCommonName}
+            startValidity={startValidity}
+            endValidity={endValidity}
+          />
+        )}
       </Container>
     </PageWrapper>
   );

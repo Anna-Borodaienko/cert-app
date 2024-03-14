@@ -1,5 +1,5 @@
-import { dataUriToBuffer } from "data-uri-to-buffer";
-import { setCertificatesList } from "./certificatesList";
+import { dataUriToBuffer } from 'data-uri-to-buffer';
+import { setCertificatesList } from './certificatesList';
 
 export const setCertificate = async (certificate: File): Promise<void> => {
   const reader = new FileReader();
@@ -19,14 +19,16 @@ export const setCertificate = async (certificate: File): Promise<void> => {
   };
 
   await readFile();
-} 
+};
 
 export const getCertificate = (fileName: string): ArrayBuffer => {
   const certificateData = localStorage.getItem(fileName);
 
-   if (certificateData === null) {
-    throw new Error(`Certificate data for ${fileName} not found in localStorage.`);
+  if (certificateData === null) {
+    throw new Error(
+      `Certificate data for ${fileName} not found in localStorage.`
+    );
   }
 
   return dataUriToBuffer(certificateData).buffer;
-}
+};

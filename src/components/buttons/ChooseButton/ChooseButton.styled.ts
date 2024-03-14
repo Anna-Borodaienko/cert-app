@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ChooseButtonWrapper = styled.button`
   padding: 10px;
@@ -8,4 +8,4 @@ export const ChooseButtonWrapper = styled.button`
   background-color: #e6e6e6;
   border: 2px solid black;
   border-radius: 10px;
-`
+`;

@@ -15,9 +15,8 @@ const StartPage: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     const certificatesInStorage = getCertificatesList();
-    if (certificatesInStorage.length > 0) navigate(`${Pages.CERTIFICATES}`)
+    if (certificatesInStorage.length > 0) navigate(`${Pages.CERTIFICATES}`);
   }, []);
-  
 
   return (
     <PageWrapper>

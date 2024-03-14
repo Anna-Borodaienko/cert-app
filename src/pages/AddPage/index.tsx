@@ -1,9 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import AddButton from '../../components/buttons/AddButton';
-import {
-  Container,
-  PageWrapper,
-} from '../Pages.styled';
+import { Container, PageWrapper } from '../Pages.styled';
 import { Pages } from '../../constants/pages';
 import { StyledDropZone, StyledSpan } from './AddPage.styled';
 import { useDropzone } from 'react-dropzone';
@@ -27,7 +24,7 @@ const AddPage: React.FC = (): JSX.Element => {
       navigate(`${Pages.CERTIFICATES}`);
     },
     noClick: true,
-    maxFiles: 1
+    maxFiles: 1,
   });
 
   return (

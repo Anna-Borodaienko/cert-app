@@ -1,5 +1,5 @@
-import CertificateItem from "../CertificateItem";
-import { CertificatesListWrapper } from "./CertificatesList.styled";
+import CertificateItem from '../CertificateItem';
+import { CertificatesListWrapper } from './CertificatesList.styled';
 
 interface CertificatesListProps {
   certificatesList: string[];

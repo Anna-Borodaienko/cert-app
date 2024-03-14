@@ -1,9 +1,9 @@
-import { styled } from "styled-components"
+import { styled } from 'styled-components';
 
 export const PageWrapper = styled.div`
   display: flex;
   gap: 20px;
-`
+`;
 
 export const Container = styled.div`
   height: 80vh;
@@ -14,4 +14,4 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 50px;
   overflow-y: auto;
-`
+`;

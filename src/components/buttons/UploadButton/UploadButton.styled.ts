@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const UploadButtonWrapper = styled.button`
   padding: 10px;
@@ -8,7 +8,7 @@ export const UploadButtonWrapper = styled.button`
   background-color: #e6e6e6;
   border: 2px solid black;
   border-radius: 10px;
-`
+`;
 
 export const StyledInput = styled.input`
   opacity: 0;
@@ -16,4 +16,4 @@ export const StyledInput = styled.input`
   height: 0;
   padding: 0;
   margin: 0;
-`
+`;

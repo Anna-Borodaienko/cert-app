@@ -1,5 +1,5 @@
-import { useRef } from "react";
-import { StyledInput, UploadButtonWrapper } from "./UploadButton.styled";
+import { useRef } from 'react';
+import { StyledInput, UploadButtonWrapper } from './UploadButton.styled';
 
 interface UploadButtonProps {
   text: string;
@@ -17,7 +17,6 @@ const UploadButton: React.FC<UploadButtonProps> = ({
       filePicker.current.click();
     }
   };
-
 
   return (
     <>

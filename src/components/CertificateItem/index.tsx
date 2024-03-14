@@ -1,5 +1,5 @@
-import { restoreCertificate } from "../../utils";
-import { CertificateItemWrapper, IconWrapper } from "./CertificateItem.styled";
+import { restoreCertificate } from '../../utils';
+import { CertificateItemWrapper, IconWrapper } from './CertificateItem.styled';
 import { BsFillCaretRightFill } from 'react-icons/bs';
 
 interface CertificateItemProps {
@@ -30,4 +30,3 @@ const CertificateItem: React.FC<CertificateItemProps> = ({
 };
 
 export default CertificateItem;
-

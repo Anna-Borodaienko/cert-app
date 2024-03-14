@@ -1,8 +1,8 @@
-import { AddButtonWrapper } from "./AddButton.styled";
+import { AddButtonWrapper } from './AddButton.styled';
 
 interface AddButtonProps {
-  text: string,
-  onClick: () => void,
+  text: string;
+  onClick: () => void;
 }
 
 const AddButton: React.FC<AddButtonProps> = ({

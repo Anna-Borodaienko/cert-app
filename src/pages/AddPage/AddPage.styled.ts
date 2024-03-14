@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledSpan = styled.span`
   font-weight: 200;
   font-size: 24px;
   text-align: center;
-`
+`;
 
 export const StyledDropZone = styled.div`
   height: 500px;
@@ -15,4 +15,4 @@ export const StyledDropZone = styled.div`
   flex-direction: column;
   justify-content: center;
   border: 2px dotted black;
-`
+`;

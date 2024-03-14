@@ -10,4 +10,4 @@ export const setCertificatesList = (fileName: string): void => {
 
 export const getCertificatesList = (): string[] => {
   return localStorage.getItem('certificates')?.split(',') || [];
-}
+};

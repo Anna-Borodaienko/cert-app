@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const CertificateCardWrapper = styled.div`
   display: flex;
@@ -8,4 +8,4 @@ export const CertificateCardWrapper = styled.div`
   padding: 40px;
   margin-top: 250px;
   border: 2px solid black;
-`
+`;

@@ -1,4 +1,4 @@
-import { StyledString, StyledTitle } from "./InfoField.styled";
+import { StyledString, StyledTitle } from './InfoField.styled';
 
 interface InfoFieldProps {
   title: string;
