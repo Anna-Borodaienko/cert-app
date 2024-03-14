@@ -1,16 +1,21 @@
 import { dataUriToBuffer } from 'data-uri-to-buffer';
 import { setCertificatesList } from './certificatesList';
+import { checkCertificate } from '../utils/checkCertificate';
 
 export const setCertificate = async (certificate: File): Promise<void> => {
   const reader = new FileReader();
 
   const readFile = () => {
     return new Promise<void>((resolve, reject) => {
-      reader.onload = () => {
+      reader.onload = async () => {
         const fileName = certificate.name;
         const fileContent = reader.result as string;
-        localStorage.setItem(fileName, fileContent);
-        setCertificatesList(fileName);
+        const isCorrectType = await checkCertificate(certificate);
+
+        if (isCorrectType) {
+          localStorage.setItem(fileName, fileContent);
+          setCertificatesList(fileName);
+        }
         resolve();
       };
       reader.onerror = reject;
