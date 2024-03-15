@@ -1,4 +1,4 @@
-import { restoreCertificate } from '../../utils';
+import { restoreCertificate } from '../../utils/restoreCertificate';
 import { CertificateItemWrapper, IconWrapper } from './CertificateItem.styled';
 import { BsFillCaretRightFill } from 'react-icons/bs';
 

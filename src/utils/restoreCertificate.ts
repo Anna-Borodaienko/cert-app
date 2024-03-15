@@ -1,7 +1,67 @@
 import ASN1 from '@lapo/asn1js';
 import { getCertificate } from '../storage/certificates';
-import { getCommonName } from './getCommonName';
-import { getPeriod } from './getPeriod';
+import moment from 'moment';
+
+const getCommonName = (name: ASN1): string => {
+  if (!name.sub) return 'CommonName is not defined';
+
+  const commonNameIndex = name.sub.findIndex((sub) => {
+    const nestedSub = sub?.sub?.[0].sub?.[0];
+
+    if (!nestedSub) return false;
+
+    const posStart = nestedSub.posStart();
+    const posEnd = nestedSub.posEnd();
+    const currentSubId = sub.stream.parseOID(posStart, posEnd, 200);
+    return currentSubId.includes('4.3');
+  });
+
+  if (commonNameIndex === -1) return 'CommonName is not defined';
+
+  const foundSub = name.sub[commonNameIndex];
+  const nestedSub = foundSub.sub?.[0]?.sub?.[1];
+
+  if (!foundSub || !nestedSub) return 'CommonName is not defined';
+
+  const stream = foundSub.stream;
+  const posStart = nestedSub.posStart() + 2;
+  const posEnd = nestedSub.posEnd();
+  const commonName = stream.parseStringUTF(posStart, posEnd, 500).str;
+  return commonName;
+};
+
+const getPeriod = (
+  validity: ASN1
+): { startValidity: string; endValidity: string } => {
+  if (!validity || !validity.sub)
+    return {
+      startValidity: 'Validity start period is not defined',
+      endValidity: 'Validity end period is not defined',
+    };
+
+  const getStringDate = (sub: ASN1) => {
+    const streamDate = sub.stream;
+    const posStartDate = sub.posStart() + 2;
+    const posEndTimeDate = sub.posEnd();
+    const stringTimeStart = streamDate.parseStringUTF(
+      posStartDate,
+      posEndTimeDate,
+      50
+    ).str;
+    const formattedDate = moment
+      .utc(stringTimeStart, 'YYMMDDHHmmss')
+      .format('DD-MM-YY');
+
+    return formattedDate;
+  };
+
+  return {
+    startValidity:
+      getStringDate(validity.sub[0]) || 'Validity start period is not defined',
+    endValidity:
+      getStringDate(validity.sub[1]) || 'Validity end period is not defined',
+  };
+};
 
 export const restoreCertificate = (
   fileName: string

@@ -5,9 +5,9 @@ import { setCertificate } from '../../storage/certificates';
 import { getCertificatesList } from '../../storage/certificatesList';
 import { Container, PageWrapper } from '../Pages.styled';
 import CertificateCard from '../../components/CertificateCard';
-import { restoreCertificate } from '../../utils';
 import { useNavigate } from 'react-router-dom';
 import { Pages } from '../../constants/pages';
+import { restoreCertificate } from '../../utils/restoreCertificate';
 
 const defaultCertificateInfo = {
   subjectCommonName: '',
